@@ -1,19 +1,41 @@
 package algoritmo;
 
+import java.awt.*;
+
 public class Ladrao extends ProgramaLadrao {
+
+    private static int idGenerator = 0;
 
     private int decisao;
     private int countNaoAchaNinguem;
     private int id;
-    protected static int idGenerator = 0;
+    private MapView.Cell mapa[][];
+    private MapView mapview;
 
     public Ladrao() {
         super();
         id = idGenerator++;
         id = id - 4;
+
+        if (id == 1) {
+            mapa = new MapView.Cell[30][30];
+            for (int i = 0; i < 30; i++) {
+                for (int j = 0; j < 30; j++) {
+                    mapa[i][j] = new MapView.Cell(-4, 0);
+                }
+            }
+            mapview = new MapView();
+        }
+
     }
 
     public int acao() {
+
+        if (id == 1) {
+            Point posicao = sensor.getPosicao();
+            updateMapa(posicao.x, posicao.y);
+            mapview.update(mapa, posicao.x, posicao.y, true, false);
+        }
 
         acharDecisao();
 
@@ -27,7 +49,7 @@ public class Ladrao extends ProgramaLadrao {
             default:
                 return procurarAleatoriamente();
         }
-        
+
     }
 
     private void acharDecisao() {
@@ -47,7 +69,7 @@ public class Ladrao extends ProgramaLadrao {
         int[] ambienteOlfato = sensor.getAmbienteOlfatoPoupador();
         for (int i = 0; i < ambienteOlfato.length; i++) {
             if (ambienteOlfato[i] > 0) {
-                if (id == 0)
+                if (id == 1)
                     System.out.println(id + ":UM POUPADOR PASSOU NA CASA "
                             + i + " HA " + ambienteOlfato[i] + " RODADAS!");
                 return i;
@@ -56,12 +78,50 @@ public class Ladrao extends ProgramaLadrao {
         return -1;
     }
 
+    private void updateMapa(int x, int y) {
+
+        int[] visao = sensor.getVisaoIdentificacao();
+
+        int linha = 0, coluna = 0;
+
+        for (int i = 0; i < visao.length; i++) {
+            if (linha < 2) {
+                if (i % 5 == 0) {
+                    linha++;
+                    coluna = 0;
+                }
+                if (visao[i] >= 0)
+                    mapa[y - 2 + linha][x - 2 + coluna].v = visao[i];
+                coluna++;
+
+            } else if (linha == 2) {
+                if ((i + 1) % 5 == 0) {
+                    linha++;
+                    coluna = 0;
+                }
+                if (coluna == 2) coluna++;
+                if (visao[i] >= 0)
+                    mapa[y - 2 + linha][x - 2 + coluna].v = visao[i];
+                coluna++;
+            } else {
+                if ((i + 1) % 5 == 0) {
+                    linha++;
+                    coluna = 0;
+                }
+                if (visao[i] >= 0)
+                    mapa[y - 2 + linha][x - 2 + coluna].v = visao[i];
+                coluna++;
+            }
+        }
+
+    }
+
     private int seesPoupador() {
         int[] visao = sensor.getVisaoIdentificacao();
         for (int i = 0; i < visao.length; i++) {
             if (visao[i] == 100) {
                 countNaoAchaNinguem = 0;
-                if (id == 0)
+                if (id == 1)
                     System.out.println(id + ":EXISTE UM POUPADOR NA CASA " + i + "!");
                 return i;
             }
@@ -75,7 +135,7 @@ public class Ladrao extends ProgramaLadrao {
         for (int valor : visao) {
             if (valor == 1 || valor == 3 || valor == 4)
                 if ((Math.random() * 100) <= countNaoAchaNinguem) {
-                    if (id == 0)
+                    if (id == 1)
                         System.out.println(id + ":CONTORNAR PAREDE!");
                     return true;
                 }
@@ -83,21 +143,19 @@ public class Ladrao extends ProgramaLadrao {
         return false;
     }
 
-
     private int contornarParede() {
-        return 0;
+        return (int) (Math.random() * 5);
     }
 
     private int seguirPoupador() {
-        return 0;
+        return (int) (Math.random() * 5);
     }
 
     private int procurarPoupador() {
-        return 0;
+        return (int) (Math.random() * 5);
     }
 
     private int procurarAleatoriamente() {
-        return 0;
-
+        return (int) (Math.random() * 5);
     }
 }
