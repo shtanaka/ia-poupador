@@ -21,7 +21,7 @@ public class Ladrao extends ProgramaLadrao {
             mapa = new MapView.Cell[30][30];
             for (int i = 0; i < 30; i++) {
                 for (int j = 0; j < 30; j++) {
-                    mapa[i][j] = new MapView.Cell(-4, 0);
+                    mapa[i][j] = new MapView.Cell(-88, 0);
                 }
             }
             mapview = new MapView();
@@ -33,7 +33,7 @@ public class Ladrao extends ProgramaLadrao {
 
         if (id == 1) {
             Point posicao = sensor.getPosicao();
-            updateMapa(posicao.x, posicao.y);
+            updateMapa();
             mapview.update(mapa, posicao.x, posicao.y, true, false);
         }
 
@@ -78,41 +78,24 @@ public class Ladrao extends ProgramaLadrao {
         return -1;
     }
 
-    private void updateMapa(int x, int y) {
+    private void updateMapa() {
 
         int[] visao = sensor.getVisaoIdentificacao();
-
-        int linha = 0, coluna = 0;
-
-        for (int i = 0; i < visao.length; i++) {
-            if (linha < 2) {
-                if (i % 5 == 0) {
-                    linha++;
-                    coluna = 0;
+        Point posicao = sensor.getPosicao();
+        int x = posicao.x;
+        int y = posicao.y;
+        int aux = 0;
+        for (int linha = 0; linha < 5; linha++) {
+            for (int coluna = 0; coluna < 5; coluna++) {
+                if (linha * 5 + coluna != 12) {
+                    if (visao[linha * 5 + coluna - aux] >= 0)
+                        mapa[y - 2 + linha][x - 2 + coluna].v = visao[linha * 5 + coluna - aux];
+                } else {
+                    aux++;
                 }
-                if (visao[i] >= 0)
-                    mapa[y - 2 + linha][x - 2 + coluna].v = visao[i];
-                coluna++;
-
-            } else if (linha == 2) {
-                if ((i + 1) % 5 == 0) {
-                    linha++;
-                    coluna = 0;
-                }
-                if (coluna == 2) coluna++;
-                if (visao[i] >= 0)
-                    mapa[y - 2 + linha][x - 2 + coluna].v = visao[i];
-                coluna++;
-            } else {
-                if ((i + 1) % 5 == 0) {
-                    linha++;
-                    coluna = 0;
-                }
-                if (visao[i] >= 0)
-                    mapa[y - 2 + linha][x - 2 + coluna].v = visao[i];
-                coluna++;
             }
         }
+
 
     }
 

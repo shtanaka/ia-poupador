@@ -76,12 +76,12 @@ public class MapView extends JFrame {
                 if (v == 5) this.map[j][i].setBackground(Color.CYAN);
                 if (v == 100 || v == 110) this.map[j][i].setBackground(Color.RED);
                 if (v == 200 || v == 210 || v == 220 || v == 230) this.map[j][i].setBackground(Color.WHITE);
-
                 if (showFrequencias) {
                     this.map[j][i].setText(map[j][i].f + "");
                 } else {
-                    this.map[j][i].setText("");
+                    this.map[j][i].setText(v + "");
                 }
+
             }
         }
 
