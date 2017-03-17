@@ -4,28 +4,44 @@ import java.awt.*;
 
 public class Ladrao extends ProgramaLadrao {
 
+    private final int MUDAR_REGIAO = 0;
+    private final int PROCURAR_POUPADOR = 1;
+    private final int SEGUIR_POUPADOR = 2;
+    private final int DEIXAR_DE_SEGUIR = 3;
+
+    private Probabilidade probabilidades[];
+
     private static int idGenerator = 0;
 
-    private int decisao;
-    private int countNaoAchaNinguem;
     private int id;
-    private MapView.Cell mapa[][];
+    private Cell mapa[][];
     private MapView mapview;
 
     public Ladrao() {
         super();
+
+        // Gera ID para print
         id = idGenerator++;
         id = id - 4;
 
-        if (id == 1) {
-            mapa = new MapView.Cell[30][30];
-            for (int i = 0; i < 30; i++) {
-                for (int j = 0; j < 30; j++) {
-                    mapa[i][j] = new MapView.Cell(-88, 0);
-                }
+        // Gera o mapa
+        mapa = new Cell[30][30];
+        for (int i = 0; i < 30; i++) {
+            for (int j = 0; j < 30; j++) {
+                mapa[i][j] = new Cell(-88, 0);
             }
-            mapview = new MapView();
         }
+
+        // Gera as probabilidades
+        probabilidades = new Probabilidade[4];
+        probabilidades[0] = new Probabilidade(MUDAR_REGIAO);
+        probabilidades[1] = new Probabilidade(PROCURAR_POUPADOR);
+        probabilidades[2] = new Probabilidade(SEGUIR_POUPADOR);
+        probabilidades[3] = new Probabilidade(DEIXAR_DE_SEGUIR);
+
+        // Gera MapView apenas para 1 dos agentes
+        if (id == 1)
+            mapview = new MapView();
 
     }
 
@@ -37,7 +53,10 @@ public class Ladrao extends ProgramaLadrao {
             mapview.update(mapa, posicao.x, posicao.y, true, false);
         }
 
-        acharDecisao();
+        int decisao = acharDecisao();
+        if (id == 1) {
+            System.out.println(decisao);
+        }
 
         switch (decisao) {
             case 0:
@@ -45,37 +64,79 @@ public class Ladrao extends ProgramaLadrao {
             case 1:
                 return seguirPoupador();
             case 2:
-                return contornarParede();
-            default:
-                return procurarAleatoriamente();
+                return mudarRegiao();
         }
 
-    }
-
-    private void acharDecisao() {
-
-        if (smellsPoupador() != -1)
-            decisao = 0;
-        else if (seesPoupador() != -1)
-            decisao = 1;
-        else if (isHoraContornarParede())
-            decisao = 2;
-        else
-            decisao = 3;
+        return (int) (Math.random() * 5);
 
     }
 
-    private int smellsPoupador() {
-        int[] ambienteOlfato = sensor.getAmbienteOlfatoPoupador();
-        for (int i = 0; i < ambienteOlfato.length; i++) {
-            if (ambienteOlfato[i] > 0) {
-                if (id == 1)
-                    System.out.println(id + ":UM POUPADOR PASSOU NA CASA "
-                            + i + " HA " + ambienteOlfato[i] + " RODADAS!");
-                return i;
+    private int acharDecisao() {
+
+        analisarVisao();
+        analisarOlfato();
+
+        return sortearDecisao();
+
+    }
+
+    private void analisarVisao() {
+        int[] visao = sensor.getVisaoIdentificacao();
+        boolean hasPoupador = false;
+        for (int i = 0; i < visao.length; i++) {
+            if (visao[i] == 100) {
+                probabilidades[SEGUIR_POUPADOR].somarProbabilidade(80);
+                probabilidades[MUDAR_REGIAO].subtrairProbabilidade(50);
+                hasPoupador = true;
             }
         }
-        return -1;
+        if (!hasPoupador)
+            probabilidades[MUDAR_REGIAO].somarProbabilidade(1);
+    }
+
+    private void analisarOlfato() {
+        int[] olfato = sensor.getAmbienteOlfatoPoupador();
+        boolean hasCheiro = false;
+        for (int i = 0; i < olfato.length; i++) {
+            if (olfato[i] > 0) {
+                probabilidades[PROCURAR_POUPADOR].somarProbabilidade(20 * (6 - olfato[i]));
+                probabilidades[MUDAR_REGIAO].subtrairProbabilidade(100);
+                hasCheiro = true;
+            }
+        }
+        if (!hasCheiro)
+            probabilidades[MUDAR_REGIAO].somarProbabilidade(5);
+    }
+
+    private int sortearDecisao() {
+
+        double totalProbabilidade = probabilidades[PROCURAR_POUPADOR].getProbabilidade()
+                + probabilidades[SEGUIR_POUPADOR].getProbabilidade()
+                + probabilidades[MUDAR_REGIAO].getProbabilidade();
+        double probPP = probabilidades[PROCURAR_POUPADOR].getProbabilidade()/totalProbabilidade;
+        double probSP = probabilidades[SEGUIR_POUPADOR].getProbabilidade()/totalProbabilidade;
+        double probMR = probabilidades[MUDAR_REGIAO].getProbabilidade()/totalProbabilidade;
+
+        double fatorProbabilidade = Math.random();
+
+        if (fatorProbabilidade < probPP) return PROCURAR_POUPADOR;
+        else if (fatorProbabilidade < probPP + probSP) return SEGUIR_POUPADOR;
+        else if (fatorProbabilidade < probPP + probSP + probMR) return MUDAR_REGIAO;
+
+        return (int) (Math.random() * 5);
+
+    }
+
+    private int mudarRegiao() {
+        return (int) (Math.random() * 5);
+    }
+
+    private int seguirPoupador() {
+        return (int) (Math.random() * 5);
+    }
+
+    private int procurarPoupador() {
+        return (int) (Math.random() * 5);
     }
 
     private void updateMapa() {
@@ -97,48 +158,5 @@ public class Ladrao extends ProgramaLadrao {
         }
 
 
-    }
-
-    private int seesPoupador() {
-        int[] visao = sensor.getVisaoIdentificacao();
-        for (int i = 0; i < visao.length; i++) {
-            if (visao[i] == 100) {
-                countNaoAchaNinguem = 0;
-                if (id == 1)
-                    System.out.println(id + ":EXISTE UM POUPADOR NA CASA " + i + "!");
-                return i;
-            }
-        }
-        countNaoAchaNinguem++;
-        return -1;
-    }
-
-    private boolean isHoraContornarParede() {
-        int[] visao = sensor.getVisaoIdentificacao();
-        for (int valor : visao) {
-            if (valor == 1 || valor == 3 || valor == 4)
-                if ((Math.random() * 100) <= countNaoAchaNinguem) {
-                    if (id == 1)
-                        System.out.println(id + ":CONTORNAR PAREDE!");
-                    return true;
-                }
-        }
-        return false;
-    }
-
-    private int contornarParede() {
-        return (int) (Math.random() * 5);
-    }
-
-    private int seguirPoupador() {
-        return (int) (Math.random() * 5);
-    }
-
-    private int procurarPoupador() {
-        return (int) (Math.random() * 5);
-    }
-
-    private int procurarAleatoriamente() {
-        return (int) (Math.random() * 5);
     }
 }
