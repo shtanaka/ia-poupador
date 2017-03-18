@@ -34,10 +34,15 @@ public class Ladrao extends ProgramaLadrao {
 
         // Gera as probabilidades
         probabilidades = new Probabilidade[4];
-        probabilidades[0] = new Probabilidade(MUDAR_REGIAO);
-        probabilidades[1] = new Probabilidade(PROCURAR_POUPADOR);
-        probabilidades[2] = new Probabilidade(SEGUIR_POUPADOR);
-        probabilidades[3] = new Probabilidade(DEIXAR_DE_SEGUIR);
+        for (int i = 0; i < 4; i++) {
+            probabilidades[i] = new Probabilidade();
+        }
+
+        /*probabilidades[MUDAR_REGIAO] = new Probabilidade();
+        probabilidades[PROCURAR_POUPADOR] = new Probabilidade();
+        probabilidades[SEGUIR_POUPADOR] = new Probabilidade();
+        probabilidades[DEIXAR_DE_SEGUIR] = new Probabilidade();
+        */
 
         // Gera MapView apenas para 1 dos agentes
         if (id == 1)
@@ -113,9 +118,9 @@ public class Ladrao extends ProgramaLadrao {
         double totalProbabilidade = probabilidades[PROCURAR_POUPADOR].getProbabilidade()
                 + probabilidades[SEGUIR_POUPADOR].getProbabilidade()
                 + probabilidades[MUDAR_REGIAO].getProbabilidade();
-        double probPP = probabilidades[PROCURAR_POUPADOR].getProbabilidade()/totalProbabilidade;
-        double probSP = probabilidades[SEGUIR_POUPADOR].getProbabilidade()/totalProbabilidade;
-        double probMR = probabilidades[MUDAR_REGIAO].getProbabilidade()/totalProbabilidade;
+        double probPP = probabilidades[PROCURAR_POUPADOR].getProbabilidade() / totalProbabilidade;
+        double probSP = probabilidades[SEGUIR_POUPADOR].getProbabilidade() / totalProbabilidade;
+        double probMR = probabilidades[MUDAR_REGIAO].getProbabilidade() / totalProbabilidade;
 
         double fatorProbabilidade = Math.random();
 

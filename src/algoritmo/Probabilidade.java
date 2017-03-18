@@ -2,11 +2,9 @@ package algoritmo;
 
 public class Probabilidade {
 
-    private int decisao;
     private int probabilidade;
 
-    public Probabilidade(int decisao) {
-        this.decisao = decisao;
+    public Probabilidade() {
         this.probabilidade = 0;
     }
 
