@@ -2,8 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3099266e-2760-423e-a6dd-618623b03bfc" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gitignore" afterPath="$PROJECT_DIR$/.gitignore" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/dictionaries/edsonsilva.xml" afterPath="$PROJECT_DIR$/.idea/dictionaries/edsonsilva.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/regras.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/algoritmo/Ladrao.java" afterPath="$PROJECT_DIR$/src/algoritmo/Ladrao.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/algoritmo/Probabilidade.java" afterPath="$PROJECT_DIR$/src/algoritmo/Probabilidade.java" />
@@ -22,19 +21,24 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="Ladrao.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Ladrao.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/algoritmo/Ladrao.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="149">
-              <caret line="133" column="0" lean-forward="true" selection-start-line="133" selection-start-column="0" selection-end-line="133" selection-end-column="0" />
+            <state relative-caret-position="-391">
+              <caret line="58" column="10" lean-forward="false" selection-start-line="58" selection-start-column="10" selection-end-line="58" selection-end-column="10" />
               <folding>
-                <element signature="method#acao#0;class#Ladrao#0" expanded="false" />
-                <element signature="method#acharDecisao#0;class#Ladrao#0" expanded="false" />
-                <element signature="method#analisarVisao#0;class#Ladrao#0" expanded="false" />
-                <element signature="method#analisarOlfato#0;class#Ladrao#0" expanded="false" />
                 <element signature="method#updateMapa#0;class#Ladrao#0" expanded="false" />
-                <marker date="1489755490000" expanded="false" signature="3105:3956" ph="{...}" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="regras.txt" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/regras.txt">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="240">
+              <caret line="16" column="7" lean-forward="true" selection-start-line="16" selection-start-column="7" selection-end-line="16" selection-end-column="7" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -52,14 +56,17 @@
       <file leaf-file-name="Probabilidade.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/algoritmo/Probabilidade.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="90">
-              <caret line="6" column="28" lean-forward="false" selection-start-line="6" selection-start-column="28" selection-end-line="6" selection-end-column="28" />
+            <state relative-caret-position="285">
+              <caret line="26" column="31" lean-forward="false" selection-start-line="26" selection-start-column="31" selection-end-line="26" selection-end-column="31" />
               <folding>
+                <element signature="e#109#110#0" expanded="true" />
                 <element signature="e#147#148#0" expanded="true" />
                 <element signature="e#184#185#0" expanded="true" />
                 <element signature="e#220#221#0" expanded="true" />
                 <element signature="e#277#278#0" expanded="true" />
                 <element signature="e#328#329#0" expanded="true" />
+                <element signature="e#583#584#0" expanded="true" />
+                <element signature="e#621#622#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -129,9 +136,10 @@
         <option value="$PROJECT_DIR$/src/algoritmo/Decisao.java" />
         <option value="$PROJECT_DIR$/src/algoritmo/MapView.java" />
         <option value="$PROJECT_DIR$/src/algoritmo/Cell.java" />
+        <option value="$PROJECT_DIR$/.gitignore" />
         <option value="$PROJECT_DIR$/src/algoritmo/Probabilidade.java" />
         <option value="$PROJECT_DIR$/src/algoritmo/Ladrao.java" />
-        <option value="$PROJECT_DIR$/.gitignore" />
+        <option value="$PROJECT_DIR$/regras.txt" />
       </list>
     </option>
   </component>
@@ -620,12 +628,12 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1489650330817</updated>
-      <workItem from="1489650334864" duration="23233000" />
+      <workItem from="1489650334864" duration="24590000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="23233000" />
+    <option name="totallyTimeSpent" value="24590000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="64" width="1260" height="682" extended-state="0" />
@@ -670,7 +678,7 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="8" />
+      <option name="time" value="10" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -763,20 +771,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/algoritmo/Probabilidade.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="6" column="28" lean-forward="false" selection-start-line="6" selection-start-column="28" selection-end-line="6" selection-end-column="28" />
-          <folding>
-            <element signature="e#147#148#0" expanded="true" />
-            <element signature="e#184#185#0" expanded="true" />
-            <element signature="e#220#221#0" expanded="true" />
-            <element signature="e#277#278#0" expanded="true" />
-            <element signature="e#328#329#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/.gitignore">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="90">
@@ -785,18 +779,38 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/algoritmo/Probabilidade.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="285">
+          <caret line="26" column="31" lean-forward="false" selection-start-line="26" selection-start-column="31" selection-end-line="26" selection-end-column="31" />
+          <folding>
+            <element signature="e#109#110#0" expanded="true" />
+            <element signature="e#147#148#0" expanded="true" />
+            <element signature="e#184#185#0" expanded="true" />
+            <element signature="e#220#221#0" expanded="true" />
+            <element signature="e#277#278#0" expanded="true" />
+            <element signature="e#328#329#0" expanded="true" />
+            <element signature="e#583#584#0" expanded="true" />
+            <element signature="e#621#622#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/algoritmo/Ladrao.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="149">
-          <caret line="133" column="0" lean-forward="true" selection-start-line="133" selection-start-column="0" selection-end-line="133" selection-end-column="0" />
+        <state relative-caret-position="-391">
+          <caret line="58" column="10" lean-forward="false" selection-start-line="58" selection-start-column="10" selection-end-line="58" selection-end-column="10" />
           <folding>
-            <element signature="method#acao#0;class#Ladrao#0" expanded="false" />
-            <element signature="method#acharDecisao#0;class#Ladrao#0" expanded="false" />
-            <element signature="method#analisarVisao#0;class#Ladrao#0" expanded="false" />
-            <element signature="method#analisarOlfato#0;class#Ladrao#0" expanded="false" />
             <element signature="method#updateMapa#0;class#Ladrao#0" expanded="false" />
-            <marker date="1489755490000" expanded="false" signature="3105:3956" ph="{...}" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/regras.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="16" column="7" lean-forward="true" selection-start-line="16" selection-start-column="7" selection-end-line="16" selection-end-column="7" />
+          <folding />
         </state>
       </provider>
     </entry>

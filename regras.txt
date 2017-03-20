@@ -1,0 +1,30 @@
+0 1 2
+3	4
+5 6 7
+
+0  1  2  3  4
+5  6  7  8  9
+10 11    12 13
+14 15 16 17 18
+19 20 21 22 23
+
+	VISAO
+
+-2 sem visao
+-1 fora do ambiente
+0 celula vazia
+1 parede
+3 banco
+4 moeda
+5 pastinha do poder
+100 poupador
+200 ladrao
+
+	OFATO
+0 nada
+1 marca de cheiro a uma unidade de tempo
+2 marca de cheiro a 2 unidades de tempo
+.
+.
+.
+MAXIMO 5!

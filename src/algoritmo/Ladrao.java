@@ -45,18 +45,18 @@ public class Ladrao extends ProgramaLadrao {
         */
 
         // Gera MapView apenas para 1 dos agentes
-        if (id == 1)
+        if (id == 0)
             mapview = new MapView();
 
     }
 
     public int acao() {
 
-        if (id == 1) {
+        //if (id == 0) {
             Point posicao = sensor.getPosicao();
             updateMapa();
             mapview.update(mapa, posicao.x, posicao.y, true, false);
-        }
+        //}
 
         int decisao = acharDecisao();
         if (id == 1) {
@@ -78,8 +78,8 @@ public class Ladrao extends ProgramaLadrao {
 
     private int acharDecisao() {
 
-        analisarVisao();
         analisarOlfato();
+        analisarVisao();
 
         return sortearDecisao();
 
@@ -92,6 +92,7 @@ public class Ladrao extends ProgramaLadrao {
             if (visao[i] == 100) {
                 probabilidades[SEGUIR_POUPADOR].somarProbabilidade(80);
                 probabilidades[MUDAR_REGIAO].subtrairProbabilidade(50);
+                probabilidades[PROCURAR_POUPADOR].subtrairProbabilidade(80);
                 hasPoupador = true;
             }
         }
@@ -137,6 +138,7 @@ public class Ladrao extends ProgramaLadrao {
     }
 
     private int seguirPoupador() {
+
         return (int) (Math.random() * 5);
     }
 

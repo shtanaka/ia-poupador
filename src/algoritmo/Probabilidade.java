@@ -22,4 +22,8 @@ public class Probabilidade {
         else
             this.probabilidade = 0;
     }
+
+    public void zerarProbabilidade() {
+        this.probabilidade = 0;
+    }
 }
