@@ -2,10 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3099266e-2760-423e-a6dd-618623b03bfc" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/regras.txt" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Labirintos/labirinto-gus.txt" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Labirintos/labirinto-renato.txt" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Labirintos/labirinto-wil.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/algoritmo/Ladrao.java" afterPath="$PROJECT_DIR$/src/algoritmo/Ladrao.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/algoritmo/Probabilidade.java" afterPath="$PROJECT_DIR$/src/algoritmo/Probabilidade.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -21,11 +22,11 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="Ladrao.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="Ladrao.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/algoritmo/Ladrao.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-391">
-              <caret line="58" column="10" lean-forward="false" selection-start-line="58" selection-start-column="10" selection-end-line="58" selection-end-column="10" />
+            <state relative-caret-position="119">
+              <caret line="94" column="50" lean-forward="false" selection-start-line="94" selection-start-column="50" selection-end-line="94" selection-end-column="50" />
               <folding>
                 <element signature="method#updateMapa#0;class#Ladrao#0" expanded="false" />
               </folding>
@@ -33,11 +34,21 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="regras.txt" pinned="false" current-in-tab="true">
+      <file leaf-file-name="regras.txt" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/regras.txt">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="240">
               <caret line="16" column="7" lean-forward="true" selection-start-line="16" selection-start-column="7" selection-end-line="16" selection-end-column="7" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="labirinto-gus.txt" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Labirintos/labirinto-gus.txt">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="330">
+              <caret line="22" column="26" lean-forward="false" selection-start-line="22" selection-start-column="26" selection-end-line="22" selection-end-column="26" />
               <folding />
             </state>
           </provider>
@@ -138,8 +149,10 @@
         <option value="$PROJECT_DIR$/src/algoritmo/Cell.java" />
         <option value="$PROJECT_DIR$/.gitignore" />
         <option value="$PROJECT_DIR$/src/algoritmo/Probabilidade.java" />
-        <option value="$PROJECT_DIR$/src/algoritmo/Ladrao.java" />
         <option value="$PROJECT_DIR$/regras.txt" />
+        <option value="$PROJECT_DIR$/Labirintos/labirinto-ren.txt" />
+        <option value="$PROJECT_DIR$/Labirintos/labirinto-gus.txt" />
+        <option value="$PROJECT_DIR$/src/algoritmo/Ladrao.java" />
       </list>
     </option>
   </component>
@@ -208,6 +221,11 @@
     <property name="nodejs_interpreter_path" value="/usr/local/bin/node" />
     <property name="js.eslint.eslintPackage" value="" />
     <property name="js-jscs-nodeInterpreter" value="/usr/local/bin/node" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/Labirintos" />
+    </key>
   </component>
   <component name="RunManager" selected="Application.main">
     <configuration default="true" type="#org.jetbrains.idea.devkit.run.PluginConfigurationType" factoryName="Plugin">
@@ -628,12 +646,12 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1489650330817</updated>
-      <workItem from="1489650334864" duration="24590000" />
+      <workItem from="1489650334864" duration="25175000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="24590000" />
+    <option name="totallyTimeSpent" value="25175000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="64" width="1260" height="682" extended-state="0" />
@@ -796,13 +814,27 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/algoritmo/Ladrao.java">
+    <entry file="file://$PROJECT_DIR$/Labirintos/labirinto-ren.txt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-391">
-          <caret line="58" column="10" lean-forward="false" selection-start-line="58" selection-start-column="10" selection-end-line="58" selection-end-column="10" />
-          <folding>
-            <element signature="method#updateMapa#0;class#Ladrao#0" expanded="false" />
-          </folding>
+        <state relative-caret-position="158">
+          <caret line="21" column="39" lean-forward="false" selection-start-line="21" selection-start-column="36" selection-end-line="21" selection-end-column="39" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Labirintos/labirinto-wil.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Labirintos/labirinto-renato.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -811,6 +843,24 @@
         <state relative-caret-position="240">
           <caret line="16" column="7" lean-forward="true" selection-start-line="16" selection-start-column="7" selection-end-line="16" selection-end-column="7" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Labirintos/labirinto-gus.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="330">
+          <caret line="22" column="26" lean-forward="false" selection-start-line="22" selection-start-column="26" selection-end-line="22" selection-end-column="26" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/algoritmo/Ladrao.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="94" column="50" lean-forward="false" selection-start-line="94" selection-start-column="50" selection-end-line="94" selection-end-column="50" />
+          <folding>
+            <element signature="method#updateMapa#0;class#Ladrao#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
