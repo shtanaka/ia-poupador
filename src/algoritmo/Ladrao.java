@@ -137,6 +137,7 @@ public class Ladrao extends ProgramaLadrao {
     }
 
     private int mudarRegiao() {
+        probabilidades[SEGUIR_POUPADOR].zerarProbabilidade();
         return (int) (Math.random() * 5);
     }
 
