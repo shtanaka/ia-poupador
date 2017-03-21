@@ -1,9 +1,0 @@
-<component name="libraryTable">
-  <library name="poupador">
-    <CLASSES>
-      <root url="jar://$PROJECT_DIR$/lib/poupador.jar!/" />
-    </CLASSES>
-    <JAVADOC />
-    <SOURCES />
-  </library>
-</component>
